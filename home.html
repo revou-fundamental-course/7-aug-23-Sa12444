@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 320px;
+  }
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-transform: uppercase;
+    color: #002855; /* Warna biru tua */
+  }
+  .blue-box {
+    background-color: #b3d0e9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .triangle-img {
+    width: 150px;
+    margin: 20px auto;
+  }
+  .form-group {
+    margin-top: 15px;
+  }
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+  .calculate-button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    width: 100%;
+  }
+  .calculate-button:hover {
+    background-color: #45a049;
+    transform: translate(-2px, -2px);
+  }
+  .result {
+    margin-top: 20px;
+    display: none;
+  }
+  .result p {
+    margin: 10px 0;
+  }
+</style>
+<title>Kalkulator Segitiga</title>
+</head>
+<body>
+<div class="container">
+  <div class="blue-box">
+    <div class="header">KALKULATOR<br>SEGITIGA</div>
+  </div>
+  <img src="https://rumuspintar.com/wp-content/uploads/2019/10/Rumus-Luas-Segitiga.jpg" alt="Segitiga" class="triangle-img">
+  <div class="form-group">
+    <label for="base">Alas:</label>
+    <input type="number" id="base" placeholder="Panjang Alas">
+  </div>
+  <div class="form-group">
+    <label for="height">Tinggi:</label>
+    <input type="number" id="height" placeholder="Tinggi Segitiga">
+  </div>
+  <div class="form-group">
+    <label for="side">Sisi Miring:</label>
+    <input type="number" id="side" placeholder="Panjang Sisi Miring">
+  </div>
+  <button class="calculate-button" onclick="calculate()">Hitung</button>
+  <div class="result" id="result">
+    <p>Luas: <span id="areaResult"></span></p>
+    <p>Keliling: <span id="perimeterResult"></span></p>
+    <p>Rumus Luas: L = 1/2 x Alas x Tinggi</p>
+    <p>Rumus Keliling: K = Jumlah Ketiga Sisi</p>
+  </div>
+</div>
+<script>
+  function calculate() {
+    const base = parseFloat(document.getElementById("base").value);
+    const height = parseFloat(document.getElementById("height").value);
+    const side = parseFloat(document.getElementById("side").value);
+
+    if (!isNaN(base) && !isNaN(height) && !isNaN(side)) {
+      const area = 0.5 * base * height;
+      const perimeter = base + height + side;
+
+      document.getElementById("areaResult").textContent = area.toFixed(2);
+      document.getElementById("perimeterResult").textContent = perimeter.toFixed(2);
+      document.getElementById("result").style.display = "block";
+    }
+  }
+</script>
+</body>
+</html>
